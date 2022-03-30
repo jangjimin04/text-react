@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
-import Animal from './Animal'
+import Counter from './Counter'
 
 class App extends Component {
+  state = {
+    name:'parent'
+  }
+  changeName = () => {
+    this.setState({name:"parent changed"})
+  }
   render() {
+    console.log('parent')
+    const {name} = this.state
     return (
-      <Animal
-        type='cat'
-        name='meyow'
-        size='small'
-        sound='low'
-        appearence='cute'
-        />
-    )
+      <>
+        <h1>{name}</h1>
+        <button type="button" onClick={this.changeName}>change name</button>
+        <Counter/>
+      </>
+    );
   }
 }
 
